@@ -11,7 +11,20 @@ def feed():
         response = requests.get(xml_url, headers={"User-Agent": "Mozilla/5.0"})
 
         if response.status_code == 200:
-            return Response(response.content, mimetype='application/xml')
+            xml_content = response.content.decode("utf-8")
+
+            html_response = f"""<?xml version="1.0" encoding="UTF-8"?>
+            <html>
+            <head>
+            <meta name="google-site-verification" content="zuzGZIEz4VkOOlwFRO__71tTQcBW1asSYelrw7eUSCU" />
+            </head>
+            <body>
+            {xml_content}
+            </body>
+            </html>
+            """
+
+            return Response(html_response, mimetype='application/xml')
         else:
             return f"Erro ao buscar XML: {response.status_code}", 500
     except Exception as e:
