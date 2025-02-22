@@ -16,8 +16,7 @@ def feed():
             html_response = f"""<?xml version="1.0" encoding="UTF-8"?>
             <html>
             <head>
-            <meta name="google-site-verification" content="zuzGZIEz4VkOOlwFRO__71tTQcBW1asSYelrw7eUSCU" />
-            </head>
+            </head><meta name="google-site-verification" content="zVD5PLGcdIn_0knHPPc-vjJxvPktFIWCH3k3fbiDqKs" />
             <body>
             {xml_content}
             </body>
